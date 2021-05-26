@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Main.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.196078, 0.317647, 0.560784, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
@@ -21,3 +27,28 @@ position = Vector2( 280.221, 95.9218 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 712.408, 78.6774 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SloMeter" type="Label" parent="CanvasLayer"]
+margin_right = 102.0
+margin_bottom = 34.0
+text = "SloMeter"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+margin_top = 27.0
+margin_right = 104.0
+margin_bottom = 41.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
